@@ -27,6 +27,8 @@ class Flowdock extends Adapter
       console.log("#{message} and #{message.event}")
       console.log("#{message.content} message content")
       console.log("#{message.content.event} message event")
+      console.log("#{message.content.pull_request.url} message url")
+      console.log("#{message.content.pull_request.title} message title")
       return unless message.event == ('message'||'vcs')
       author =
         id: message.user
@@ -35,8 +37,14 @@ class Flowdock extends Adapter
       return if @robot.name.toLowerCase() == author.name.toLowerCase()
       # Reformat leading @mention name to be like "name: message" which is
       # what hubot expects
-      regex = new RegExp("^@#{@robot.name}(,|\\b)", "i")
-      hubot_msg = message.content.replace(regex, "#{@robot.name}: ")
+      hubot_msg = ''
+      if(message.event == ('vcs'))
+        console.log("in event #{message.content} message content")
+        hubot_msg = "#{@robot.name} #{message.content}"
+      else
+        console.log("in else with #{message.content} message content")
+        regex = new RegExp("^@#{@robot.name}(,|\\b)", "i")
+        hubot_msg = message.content.replace(regex, "#{@robot.name}: ")
       @receive new TextMessage(author, hubot_msg)
 
   run: ->
@@ -63,3 +71,4 @@ class Flowdock extends Adapter
 
 exports.use = (robot) ->
   new Flowdock robot
+
