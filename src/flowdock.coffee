@@ -38,7 +38,7 @@ class Flowdock extends Adapter
       hubot_msg = ''
       if(message.event == ('vcs'))
         console.log("in event #{message.content} message content")
-        hubot_msg = "#{@robot.name} #{message.content}"
+        hubot_msg = "#{@robot.name}: help"
       else
         console.log("in else with #{message.content} message content")
         regex = new RegExp("^@#{@robot.name}(,|\\b)", "i")
