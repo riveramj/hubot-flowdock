@@ -36,7 +36,7 @@ class Flowdock extends Adapter
       # Reformat leading @mention name to be like "name: message" which is
       # what hubot expects
       hubot_msg = ''
-      if(message.event == ('vcs'))
+      if(message.event == 'vcs')
         console.log("in event #{message.content} message content")
         hubot_msg = "#{@robot.name}: help"
         console.log("#{author} author1")
