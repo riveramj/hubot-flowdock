@@ -39,6 +39,9 @@ class Flowdock extends Adapter
       if(message.event == ('vcs'))
         console.log("in event #{message.content} message content")
         hubot_msg = "#{@robot.name}: help"
+        console.log("#{author} author1")
+        author = @robot.brain.userForName @robot.name
+        console.log("#{author} author2")
       else
         console.log("in else with #{message.content} message content")
         regex = new RegExp("^@#{@robot.name}(,|\\b)", "i")
@@ -69,4 +72,5 @@ class Flowdock extends Adapter
 
 exports.use = (robot) ->
   new Flowdock robot
+
 
