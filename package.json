@@ -29,7 +29,7 @@
   ],
   "repository": {
     "type": "git",
-    "url": "http://github.com/flowdock/hubot-flowdock.git"
+    "url": "http://github.com/riveramj/hubot-flowdock"
   },
   "bugs": {
     "url": "https://github.com/flowdock/hubot-flowdock/issues",
