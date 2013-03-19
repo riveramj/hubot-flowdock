@@ -26,6 +26,8 @@ class Flowdock extends Adapter
     @stream.on 'message', (message) =>
       console.log("#{message} and #{message.event}")
       return unless message.event == ('message'||'vcs')
+      console.log("#{message.content} message content")
+      console.log("#{message.content.event} message event")
       author =
         id: message.user
         name: @userForId(message.user).name
