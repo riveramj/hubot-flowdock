@@ -31,6 +31,7 @@ class Flowdock extends Adapter
       hubot_msg = ''
       author = ''
       if(message.event == 'message')
+        console.log("Foo")
         author =
           id: message.user
           name: @userForId(message.user).name
@@ -38,7 +39,7 @@ class Flowdock extends Adapter
         return if @robot.name.toLowerCase() == author.name.toLowerCase()
       # Reformat leading @mention name to be like "name: message" which is
       # what hubot expects
-      
+
       if(message.event == 'vcs')
         console.log("in event #{message.content} message content")
         hubot_msg = "#{@robot.name}: help"
