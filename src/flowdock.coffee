@@ -24,6 +24,7 @@ class Flowdock extends Adapter
     ids = (flow.id for flow in @flows)
     @stream = @bot.stream(ids, active: 'idle')
     @stream.on 'message', (message) =>
+      console.log("#{message} and #{message.event}")
       return unless message.event == ('message'||'mail')
       author =
         id: message.user
