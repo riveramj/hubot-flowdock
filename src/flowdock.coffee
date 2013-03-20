@@ -30,7 +30,6 @@ class Flowdock extends Adapter
       author = ''
       console.log("go go go")
       if(message.event == 'message')
-        console.log("Foo with #{message.flow} flow")
         author =
           id: message.user
           name: @userForId(message.user).name
@@ -41,14 +40,13 @@ class Flowdock extends Adapter
 
       if(message.event == 'vcs')
         console.log("in vcs")
-        hubot_msg = "#{@robot.name}: #{message.content}"
-        console.log("#{author} author1")
+        hubot_msg = "#{@robot.name}: new PR url:#{message.content.title} title:#{message.content.url} "
+        console.log("hubot msg is #{hubot_msg}")
         bot = @robot.brain.userForName @robot.name
         author =
           id: bot.id
           name: @robot.name
           flow: "hubot-development:main flow"
-        console.log("#{author} author2")
       else
         console.log("in else with #{message.content} message content")
         regex = new RegExp("^@#{@robot.name}(,|\\b)", "i")
