@@ -24,10 +24,11 @@ class Flowdock extends Adapter
     ids = (flow.id for flow in @flows)
     @stream = @bot.stream(ids, active: 'idle')
     @stream.on 'message', (message) =>
-      console.log("m is #{message} and m.event is #{message.event} and m.content is #{message.content} and m.c.e is #{message.content.event}")                  
-      return unless message.event == ('message'||'vcs')
+      console.log("m is #{message} and m.event is #{message.event} and m.content is #{message.content} and m.c.e is #{message.content.event}")
+      return unless message.event in ['message','vcs']
       hubot_msg = ''
       author = ''
+      console.log("go go go")
       if(message.event == 'message')
         console.log("Foo")
         author =
