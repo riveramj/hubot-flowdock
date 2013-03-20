@@ -41,7 +41,7 @@ class Flowdock extends Adapter
 
       if(message.event == 'vcs')
         console.log("in vcs")
-        hubot_msg = "#{@robot.name}: help"
+        hubot_msg = "#{@robot.name}: #{message.content}"
         console.log("#{author} author1")
         bot = @robot.brain.userForName @robot.name
         author =
