@@ -46,11 +46,12 @@ class Flowdock extends Adapter
         author =
           id: bot.id
           name: @robot.name
-          flow: "hubot-development:main flow"
+          flow: "hubot-development:main"
       else
         console.log("in else with #{message.content} message content")
         regex = new RegExp("^@#{@robot.name}(,|\\b)", "i")
         hubot_msg = message.content.replace(regex, "#{@robot.name}: ")
+      console.log("after if statement")
       @receive new TextMessage(author, hubot_msg)
 
   run: ->
