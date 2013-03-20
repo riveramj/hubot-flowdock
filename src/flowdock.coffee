@@ -30,7 +30,7 @@ class Flowdock extends Adapter
       author = ''
       console.log("go go go")
       if(message.event == 'message')
-        console.log("Foo")
+        console.log("Foo with #{message.flow} flow")
         author =
           id: message.user
           name: @userForId(message.user).name
@@ -43,7 +43,11 @@ class Flowdock extends Adapter
         console.log("in vcs")
         hubot_msg = "#{@robot.name}: help"
         console.log("#{author} author1")
-        author = @robot.brain.userForName @robot.name
+        bot = @robot.brain.userForName @robot.name
+        author =
+          id: bot.id
+          name: @robot.name
+          flow: @flows[0]
         console.log("#{author} author2")
       else
         console.log("in else with #{message.content} message content")
