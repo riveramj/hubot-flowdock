@@ -47,7 +47,7 @@ class Flowdock extends Adapter
         author =
           id: bot.id
           name: @robot.name
-          flow: @flows[0]
+          flow: "hubot-development:main flow"
         console.log("#{author} author2")
       else
         console.log("in else with #{message.content} message content")
