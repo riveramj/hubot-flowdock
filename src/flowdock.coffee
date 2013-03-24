@@ -39,8 +39,8 @@ class Flowdock extends Adapter
       # what hubot expects
 
       if(message.event == 'vcs')
-          if(message.content.action == 'closed')
-            return
+        if(message.content.action == 'closed')
+          return
         console.log("in vcs")
         hubot_msg = "new PR url:#{message.content.pull_request.url} title:#{message.content.pull_request.title} "
         console.log("hubot msg is #{hubot_msg}")
