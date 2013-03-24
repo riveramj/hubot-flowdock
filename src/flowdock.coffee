@@ -38,7 +38,9 @@ class Flowdock extends Adapter
       # Reformat leading @mention name to be like "name: message" which is
       # what hubot expects
 
-      if(message.event == 'vcs' && message.content.action == 'opened')
+      if(message.event == 'vcs')
+          if(message.content.action == 'closed')
+            return
         console.log("in vcs")
         hubot_msg = "new PR url:#{message.content.pull_request.url} title:#{message.content.pull_request.title} "
         console.log("hubot msg is #{hubot_msg}")
