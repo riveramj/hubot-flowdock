@@ -42,7 +42,7 @@ class Flowdock extends Adapter
         if(message.content.action == 'closed')
           return
         console.log("in vcs")
-        hubot_msg = "new PR url:#{message.content.pull_request.url} title:#{message.content.pull_request.title} "
+        hubot_msg = "new PR url:#{message.content.pull_request.html_url} title:#{message.content.pull_request.title} "
         console.log("hubot msg is #{hubot_msg}")
         bot = @robot.brain.userForName @robot.name
         author =
